@@ -3,3 +3,117 @@ sudo apt-get update
 
 比對套件清單決定是否需要更新
 sudo apt-get upgrade
+//系統將現有的 Package 升級, 如果有相依性的問題, 而此相依性 
+需要安裝其它新的 Package 或 影響到其它 Package 的相依性時, 此 Package 就不會被升級, 會保留下來//
+
+更新軟體
+sudo apt-get dist-upgrade
+//可以聰明的解決相依性的問題, 如果有相依性問題, 需要
+安裝/移除 新的 Package, 就會試著去安裝/移除它. (所以通常這個會被認為是有點風險的升級)//
+
+系統環境設定
+sudo raspi-config
+
+usr/lib/cgi-bin內的cgi檔測試
+//cgi-bin正試上線後請改檔名//
+./
+
+列出所有執行緒
+ps -elf
+
+列出所有執行緒
+ps -aux
+
+背景執行
+python3 "完整路徑檔.py" > /dev/null &
+
+刪除背景執行程式
+kill -9 "執行緒編號"
+
+刪除背景執行程式
+sudo kill "執行緒編號"
+
+目前身分
+whoami
+
+更改檔案擁有者
+sudo chown "user" "filename"
+
+更改檔案群組
+sudo chown :"group" "filename"
+
+同時更改擁有者:群組
+sudo chown "user":"group" "filename"
+
+更改檔案權限
+         [owner] [group] [other] 
+read    |   □   |   □   |   □  |
+write   |   □   |   □   |   □  |
+execute |   □   |   □   |   □  |
+-rwxrwx---:770
+lrwxrwxrwx:777   l:symbolic link
+drwxrwxrwx:777   d:datafile
+sudo cmod 755 "filename"
+http://www.onlineconversion.com/html_chmod_calculator.htm
+
+更改權限
+a-all / u-user / g-group / o-other
+chmod u+x file (744)
+chmod a-r file (300)
+chmod g=rx file (Group=> r-x)
+chmod a+r, g=rw file (-??rrw????)
+
+最高權限
+sudo chmod +s "filename"
+sudo chmod u+s "filename"
+
+移除最高權限
+sudo chmod -s "filename"
+sudo chmod u-s "filename"
+
+建立分身(連結)*指向錯誤會將原檔損毀
+sudo ls -fs "原檔完整路徑" ./"檔名"
+
+Vi
+vi取代
+n1,n2s/word1/word2/g
+n1 與 n2 為數字。在第 n1 與 n2 行之間尋找 word1 這個字串，並將該字串取代為 word2。
+
+:1,$s/word1/word2/g
+從第一行到最後一行尋找 word1 字串，並將該字串取代為 word2。
+
+:1,$s/word1/word2/gc
+從第一行到最後一行尋找 word1 字串，並將該字串取代為 word2，且在取代前提示使用者，
+確認是否要進行取代動作。
+
+:%s/word1/word2/gc
+從第一行到最後一行尋找 word1 字串，並將該字串取代為 word2，且在取代前提示使用者，
+確認是否要進行取代動作。
+
+
+
+
+
+建立刪除目錄
+mkdir "filename"
+rmdir "filename"
+
+複製移動檔案
+cp 
+mv
+
+範例一：複製一檔案，建立一目錄，將檔案移動到目錄中
+[root@study ~]# cd /tmp
+[root@study tmp]# cp ~/.bashrc bashrc
+[root@study tmp]# mkdir mvtest
+[root@study tmp]# mv bashrc mvtest
+# 將某個檔案移動到某個目錄去，就是這樣做！
+
+範例二：將剛剛的目錄名稱更名為 mvtest2
+[root@study tmp]# mv mvtest mvtest2
+
+範例三：再建立兩個檔案，再全部移動到 /tmp/mvtest2 當中
+[root@study tmp]# cp ~/.bashrc bashrc1
+[root@study tmp]# cp ~/.bashrc bashrc2
+[root@study tmp]# mv bashrc1 bashrc2 mvtest2
+
