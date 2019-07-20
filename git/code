@@ -1,0 +1,20 @@
+Git 全局設置：
+git config --global user.name "name"
+git config --global user.email "domain@mail.com"
+
+新創建板本庫：
+git clone http://github.com/cjahv/test.git
+cd test
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+已存在的文件夹
+cd existing_folder
+git init
+git remote add origin http://github.com/CWDTW/*gitfile*
+git add .
+git commit
+git push -u origin master
+
