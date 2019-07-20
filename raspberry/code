@@ -1,0 +1,5 @@
+更新套件清單
+sudo apt-get update
+
+比對套件清單決定是否需要更新
+sudo apt-get upgrade
