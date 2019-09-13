@@ -1,0 +1,27 @@
+start a new project [name]:
+composer create-project --prefer-dist laravel/laravel [name]
+
+
+
+run server:
+php artisan serve
+
+create a TestController in app/Http/controller file:
+php artisan make:controller TestController --resource
+//--resource include below function: 
+index()
+create()
+store(Request $request)
+show($id)
+edit($id)
+update(Request $request, $id)
+destroy($id)
+
+執行所有未執行遷移run all none migrate
+php artisan migrate
+
+還原"上一次"遷移
+php artisan migrate:rollback
+
+還原所有遷移
+php artisan migrate:reset
